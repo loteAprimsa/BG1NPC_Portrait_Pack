@@ -1,0 +1,299 @@
+BACKUP ~bg1npc_portrait_pack/backup~
+SUPPORT ~https://www.gibberlings3.net/forums/forum/28-miscellaneous-released-mods/~
+
+README ~bg1npc_portrait_pack/readme-bg1npc_pp.html~
+
+VERSION ~v3~
+
+ALWAYS
+
+  ACTION_IF NOT VARIABLE_IS_SET firebeadstate1 THEN BEGIN // check to make this happen only once per install; set in g3_cpmvars_master.tpa
+    
+	INCLUDE ~bg1npc_portrait_pack/lib/g3_cpmvars_master.tpa~
+	INCLUDE ~bg1npc_portrait_pack/lib/cd_portrait_copy.tph~
+  
+  END
+
+END
+
+AUTO_TRA ~bg1npc_portrait_pack/tra/%s~
+
+LANGUAGE ~English~                           ~english~ ~bg1npc_portrait_pack/tra/english/setup.tra~
+LANGUAGE ~Deutsch(Translation by Taimon)~    ~german~  ~bg1npc_portrait_pack/tra/english/setup.tra~
+                                                       ~bg1npc_portrait_pack/tra/german/setup.tra~
+LANGUAGE ~Francais (Translation by Anomaly)~ ~french~  ~bg1npc_portrait_pack/tra/english/setup.tra~
+                                                       ~bg1npc_portrait_pack/tra/french/setup.tra~
+
+/////                                                  \\\\\
+///// Make portraits available for use by PC           \\\\\
+/////                                                  \\\\\
+
+BEGIN @0
+
+LAF cd_pc_portrait_copy STR_VAR destination = "X#MEL2"  source = "TANCNM"   source_path = "bg1npc_portrait_pack/DIFFA" END
+LAF cd_pc_portrait_copy STR_VAR destination = "X#MEL3"  source = "CoranNM"  source_path = "bg1npc_portrait_pack/DIFFA" END
+LAF cd_pc_portrait_copy STR_VAR destination = "X#MEL4"  source = "E1CORAN"  source_path = "bg1npc_portrait_pack/XVIII" END
+LAF cd_pc_portrait_copy STR_VAR destination = "X#MEL5"  source = "ECORAN"   source_path = "bg1npc_portrait_pack/XVIII" END
+LAF cd_pc_portrait_copy STR_VAR destination = "X#MEL6"  source = "EKIVAN"   source_path = "bg1npc_portrait_pack/XVIII" END
+LAF cd_pc_portrait_copy STR_VAR destination = "X#FDRO1" source = "EVICONIA" source_path = "bg1npc_portrait_pack/XVIII" END
+LAF cd_pc_portrait_copy STR_VAR destination = "X#FPR1"  source = "EBRANW"   source_path = "bg1npc_portrait_pack/XVIII" END
+LAF cd_pc_portrait_copy STR_VAR destination = "X#FRO1"  source = "ESAFANA"  source_path = "bg1npc_portrait_pack/XVIII" END
+LAF cd_pc_portrait_copy STR_VAR destination = "X#FDRU1" source = "EFALDORN" source_path = "bg1npc_portrait_pack/XVIII" END
+
+ACTION_FOR_EACH file IN aajant aalora abran acoran adynah1 adynah2 adynah3 aedwin aeldot afaldo agarri aimoen ajahei
+                        akagai akhali akivan aminsc amont aquay asafan ashart askie atiax axan axzar ayesli BEGIN
+
+  LAF cd_pc_portrait_copy STR_VAR source = "%file%" source_path = "bg1npc_portrait_pack/AMOK" END
+
+END  
+
+/////                                                  \\\\\
+///// Replace all NPC portraits (AMOK)                 \\\\\
+/////                                                  \\\\\
+
+BEGIN @1
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "AAJANT"  destination = EVAL "%tutu_scripta%jantis" source_path = "bg1npc_portrait_pack/AMOK" END 
+LAF cd_portrait_copy STR_VAR source = "AALORA"  destination = EVAL "%tutu_scripta%lora"   source_path = "bg1npc_portrait_pack/AMOK" END  
+LAF cd_portrait_copy STR_VAR source = "ABRAN"   destination = EVAL "%tutu_scriptb%ranwe"  source_path = "bg1npc_portrait_pack/AMOK" END 
+LAF cd_portrait_copy STR_VAR source = "ACORAN"  destination = EVAL "%tutu_scriptc%oran"   source_path = "bg1npc_portrait_pack/AMOK" END 
+LAF cd_portrait_copy STR_VAR source = "ADYNAH1" destination = EVAL "%tutu_scriptd%ynahei" source_path = "bg1npc_portrait_pack/AMOK" END  
+LAF cd_portrait_copy STR_VAR source = "AEDWIN"  destination = EVAL "%tutu_scripte%dwin"   source_path = "bg1npc_portrait_pack/AMOK" END 
+LAF cd_portrait_copy STR_VAR source = "AELDOT"  destination = EVAL "%tutu_scripte%ldoth"  source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "AFALDO"  destination = EVAL "%tutu_scriptf%aldorn" source_path = "bg1npc_portrait_pack/AMOK" END 
+LAF cd_portrait_copy STR_VAR source = "AGARRI"  destination = EVAL "%tutu_scriptg%arrick" source_path = "bg1npc_portrait_pack/AMOK" END  
+LAF cd_portrait_copy STR_VAR source = "AIMOEN"  destination = EVAL "%tutu_scripti%moen"   source_path = "bg1npc_portrait_pack/AMOK" END 
+LAF cd_portrait_copy STR_VAR source = "AJAHEI"  destination = EVAL "%tutu_scriptj%aheira" source_path = "bg1npc_portrait_pack/AMOK" END  
+LAF cd_portrait_copy STR_VAR source = "AKAGAI"  destination = EVAL "%tutu_scriptk%again"  source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "AKHALI"  destination = EVAL "%tutu_scriptk%halid"  source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "AKIVAN"  destination = EVAL "%tutu_scriptk%ivan"   source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "AMINSC"  destination = EVAL "%tutu_scriptm%insc"   source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "AMONT"   destination = EVAL "%tutu_scriptm%ontar"  source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "AQUAY"   destination = EVAL "%tutu_scriptq%uayle"  source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "ASAFAN"  destination = EVAL "%tutu_scripts%afana"  source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "ASHART"  destination = EVAL "%tutu_scripts%hartel" source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "ASKIE"   destination = EVAL "%tutu_scripts%kie"    source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "ATIAX"   destination = EVAL "%tutu_scriptt%iax"    source_path = "bg1npc_portrait_pack/AMOK" END
+//LAF cd_portrait_copy STR_VAR source = "aVICON"  destination = EVAL "%tutu_scriptv%iconia" source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "AXAN"    destination = EVAL "%tutu_scriptx%an"     source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "AXZAR"   destination = EVAL "%tutu_scriptx%zar"    source_path = "bg1npc_portrait_pack/AMOK" END
+LAF cd_portrait_copy STR_VAR source = "AYESLI"  destination = EVAL "%tutu_scripty%eslick" source_path = "bg1npc_portrait_pack/AMOK" END
+
+/////                                                  \\\\\
+///// Ajantis                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Ajantis placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Alora                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Alora placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Branwen                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @2
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "EBRANW"   destination = EVAL "%tutu_scriptb%ranwe"  source_path = "bg1npc_portrait_pack/XVIII" END 
+
+/////                                                  \\\\\
+///// Coran                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @14
+SUBCOMPONENT @4
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "ACORAN"  destination = EVAL "%tutu_scriptc%oran"   source_path = "bg1npc_portrait_pack/AMOK" END 
+
+BEGIN @3
+SUBCOMPONENT @4
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "TANCNM"  destination = EVAL "%tutu_scriptc%oran"   source_path = "bg1npc_portrait_pack/DIFFA" END 
+
+BEGIN @5
+SUBCOMPONENT @4
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "CoranNM"  destination = EVAL "%tutu_scriptc%oran"   source_path = "bg1npc_portrait_pack/DIFFA" END 
+
+/////                                                  \\\\\
+///// Dynaheir                                         \\\\\
+/////                                                  \\\\\
+
+BEGIN @15
+SUBCOMPONENT @7
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "ADYNAH1" destination = EVAL "%tutu_scriptd%ynahei" source_path = "bg1npc_portrait_pack/AMOK" END  
+
+BEGIN @6
+SUBCOMPONENT @7
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "ADYNAH2" destination = EVAL "%tutu_scriptd%ynahei" source_path = "bg1npc_portrait_pack/AMOK" END  
+
+BEGIN @8
+SUBCOMPONENT @7
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "ADYNAH3" destination = EVAL "%tutu_scriptd%ynahei" source_path = "bg1npc_portrait_pack/AMOK" END  
+
+/////                                                  \\\\\
+///// Edwin                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Edwin placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Eldoth                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Eldoth placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Faldorn                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @9
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "EFALDORN"  destination = EVAL "%tutu_scriptf%aldorn" source_path = "bg1npc_portrait_pack/XVIII" END 
+
+/////                                                  \\\\\
+///// Garrick                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Garrick placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Imoen                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Imoen placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Jaheira                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Jaheira placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Kagain                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Kagain placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Khalid                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Khalid placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Kivan                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @10
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "EKIVAN"  destination = EVAL "%tutu_scriptk%ivan"   source_path = "bg1npc_portrait_pack/XVIII" END
+
+/////                                                  \\\\\
+///// Minsc                                            \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Minsc placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Montaron                                         \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Montaron placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Quayle                                           \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Quayle placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Safana                                           \\\\\
+/////                                                  \\\\\
+
+
+BEGIN @11
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "ESAFANA"  destination = EVAL "%tutu_scripts%afana"  source_path = "bg1npc_portrait_pack/XVIII" END
+
+/////                                                  \\\\\
+///// Shar-Teel                                        \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Shar-Teel placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Skie                                             \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Skie placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Tiax                                             \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Tiax placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Viconia                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @12
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc tutu tutu_totsc bgt bgee~ @16
+
+LAF cd_portrait_copy STR_VAR source = "EVICONIA"  destination = EVAL "%tutu_scriptv%iconia" source_path = "bg1npc_portrait_pack/XVIII" END
+
+/////                                                  \\\\\
+///// Xan                                              \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Xan placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Xzar                                             \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Xzar placeholder
+DEPRECATED @13
+
+/////                                                  \\\\\
+///// Yeslick                                          \\\\\
+/////                                                  \\\\\
+
+BEGIN @13 // Yeslick placeholder
+DEPRECATED @13
+
+
